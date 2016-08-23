@@ -241,6 +241,13 @@ class MessageHelper {
 	void setSystemMessageType(system_message_type type);
 	void setPayloadType(payload_type type);
 	void setPayloadSize(unsigned char size);
+	unsigned char getSensorID();
+	sensor_type getSensorType();
+	sensor_information_type getSensorInformationType();
+	sensor_command getCommand();
+	system_message_type getSystemMessageType();
+	payload_type getPayloadType();
+	unsigned char getPayloadSize();
 	char* getPayload();
 };
 

@@ -45,9 +45,34 @@ void MessageHelper::setPayloadType(payload_type type) {
 void MessageHelper::setPayloadSize(unsigned char size) {
   internalMessage_.payloadsize = size;
 }
+
+unsigned char MessageHelper::getSensorID(){
+  return internalMessage_.sensor_id;
+}
+sensor_type MessageHelper::getSensorType(){
+  return internalMessage_.sensorType;
+}
+sensor_information_type MessageHelper::getSensorInformationType(){
+  return internalMessage_.informationType;
+}
+sensor_command MessageHelper::getCommand() {
+  return internalMessage_.sensorCommand;
+}
+system_message_type MessageHelper::getSystemMessageType() {
+  return internalMessage_.messageType;
+}
+payload_type MessageHelper::getPayloadType() {
+  return internalMessage_.datatype;
+}
+unsigned char getPayloadSize();
+
+
 char* MessageHelper::getPayload() {
   return payload;
 }
+
+
+
 
 char* MessageHelper::toString() {
   char buf[100];
