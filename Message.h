@@ -218,10 +218,11 @@ typedef struct {
 	unsigned char sensor_id; // 1 byte
 	sensor_command sensorCommand; // 1 byte
 	sensor_type sensorType; // 1 byte
-	sensor_information_type informationType;
+	sensor_information_type informationType; // 1 byte
 	system_message_type messageType; // 1 byte
 	payload_type datatype; // 1 byte
-	unsigned char payloadsize; // Max number 137
+	unsigned char payloadsize; // 1 byte - Max number 137
+	char payload[137];
 } Message; // size = 144;
 
 //char* payload; // (MAX_PAYLOAD_SIZE - other fields; //144 - (1 + 1 + 1 + 1 + 1 + 1) = 138 byte MAXIMUM;
@@ -231,7 +232,6 @@ class MessageHelper {
 
  public:
 	Message internalMessage_;
-	char payload[144];
 	MessageHelper();
 	char* toString();
 	void setSensorID(unsigned char id);

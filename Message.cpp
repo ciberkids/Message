@@ -64,15 +64,13 @@ system_message_type MessageHelper::getSystemMessageType() {
 payload_type MessageHelper::getPayloadType() {
   return internalMessage_.datatype;
 }
-unsigned char getPayloadSize();
-
-
-char* MessageHelper::getPayload() {
-  return payload;
+unsigned char  MessageHelper::getPayloadSize() {
+  return internalMessage_.payloadsize;
 }
 
-
-
+char* MessageHelper::getPayload() {
+  return internalMessage_.payload;
+}
 
 char* MessageHelper::toString() {
   char buf[100];
