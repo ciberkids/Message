@@ -86,12 +86,13 @@ char* MessageHelper::toString() {
 	char payload_[138];
    */
   sprintf_P(buf,
-            PSTR("FromSensorID %u, command %u, sensorType %u, messageType %u, payloadtype %u"),
+            PSTR("FromSensorID %u, command %u, sensorType %u, messageType %u, payloadtype %u, PayloadSize %u"),
             internalMessage_.sensor_id,
             internalMessage_.sensorCommand,
             internalMessage_.sensorType,
             internalMessage_.messageType,
-            internalMessage_.datatype);
+            internalMessage_.datatype,
+            internalMessage_.payloadsize);
   return buf;
 
 }
