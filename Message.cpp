@@ -27,19 +27,19 @@ MessageHelper::MessageHelper() { };
 void MessageHelper::setSensorID(unsigned char id) {
   internalMessage_.sensor_id = id;
 }
-void MessageHelper::setSensorType(sensor_type type) {
+void MessageHelper::setSensorType(Sensor_type type) {
   internalMessage_.sensorType = type;
 }
-void MessageHelper::setSensorInformationType(sensor_information_type type) {
+void MessageHelper::setSensorInformationType(Sensor_information_type type) {
   internalMessage_.informationType = type;
 }
-void MessageHelper::setCommand(sensor_command command) {
+void MessageHelper::setCommand(Sensor_command command) {
   internalMessage_.sensorCommand = command;
 }
-void MessageHelper::setSystemMessageType(system_message_type type) {
+void MessageHelper::setSystemMessageType(System_message_type type) {
   internalMessage_.messageType = type;
 }
-void MessageHelper::setPayloadType(payload_type type) {
+void MessageHelper::setPayloadType(Payload_type type) {
   internalMessage_.datatype = type;
 }
 void MessageHelper::setPayloadSize(unsigned char size) {
@@ -49,22 +49,22 @@ void MessageHelper::setPayloadSize(unsigned char size) {
 unsigned char MessageHelper::getSensorID(){
   return internalMessage_.sensor_id;
 }
-sensor_type MessageHelper::getSensorType(){
+Sensor_type MessageHelper::getSensorType(){
   return internalMessage_.sensorType;
 }
-sensor_information_type MessageHelper::getSensorInformationType(){
+Sensor_information_type MessageHelper::getSensorInformationType(){
   return internalMessage_.informationType;
 }
-sensor_command MessageHelper::getCommand() {
+Sensor_command MessageHelper::getCommand() {
   return internalMessage_.sensorCommand;
 }
-system_message_type MessageHelper::getSystemMessageType() {
+System_message_type MessageHelper::getSystemMessageType() {
   return internalMessage_.messageType;
 }
-payload_type MessageHelper::getPayloadType() {
+Payload_type MessageHelper::getPayloadType() {
   return internalMessage_.datatype;
 }
-unsigned char  MessageHelper::getPayloadSize() {
+unsigned char MessageHelper::getPayloadSize() {
   return internalMessage_.payloadsize;
 }
 
@@ -76,10 +76,10 @@ char* MessageHelper::toString() {
   char buf[100];
   /*
    * unsigned char sensor_id; // 1 byte
-	sensor_command sensorCommand; // 1 byte
-	sensor_type sensorType; // 1 byte
-	system_message_type messageType; // 1 byte
-	payload_type datatype; // 1 byte
+	Sensor_command sensorCommand; // 1 byte
+	Sensor_type sensorType; // 1 byte
+	System_message_type messageType; // 1 byte
+	Payload_type datatype; // 1 byte
 	unsigned char payloadsize; // Max number 137
 	char payload_[138];
    */
@@ -99,7 +99,7 @@ char* MessageHelper::toString() {
 
 //
 //
-//sensor_command MessageHelper::getCommand() const {
+//Sensor_command MessageHelper::getCommand() const {
 //	return internalMessage.sensorCommand;
 //}
 //
