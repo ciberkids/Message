@@ -221,13 +221,14 @@ typedef enum : unsigned char{
 
 typedef struct {
 	unsigned char sensor_id; // 1 byte
+	uint16_t sensor_address; // 16 byte
 	Sensor_command sensorCommand; // 1 byte
 	Sensor_type sensorType; // 1 byte
 	Sensor_information_type informationType; // 1 byte
 	System_message_type messageType; // 1 byte
 	Payload_type datatype; // 1 byte
-	unsigned char payloadsize; // 1 byte - Max number 137
-	char payload[137];
+	unsigned char payloadsize; // 1 byte - Max number 121
+	char payload[121];
 } Message; // size = 144;
 
 //char* payload; // (MAX_PAYLOAD_SIZE - other fields; //144 - (1 + 1 + 1 + 1 + 1 + 1) = 138 byte MAXIMUM;
@@ -240,6 +241,7 @@ class MessageHelper {
 	MessageHelper();
 	char* toString();
 	void setSensorID(unsigned char id);
+	void setSensorAddress(uint16_t address);
 	void setSensorType(Sensor_type type);
 	void setSensorInformationType(Sensor_information_type type);
 	void setCommand(Sensor_command command);
@@ -247,6 +249,7 @@ class MessageHelper {
 	void setPayloadType(Payload_type type);
 	void setPayloadSize(unsigned char size);
 	unsigned char getSensorID();
+	uint16_t getSensorAddress();
 	Sensor_type getSensorType();
 	Sensor_information_type getSensorInformationType();
 	Sensor_command getCommand();

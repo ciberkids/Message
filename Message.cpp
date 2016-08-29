@@ -27,6 +27,9 @@ MessageHelper::MessageHelper() { };
 void MessageHelper::setSensorID(unsigned char id) {
   internalMessage_.sensor_id = id;
 }
+void MessageHelper::setSensorAddress(uint16_t address) {
+  internalMessage_.sensor_address = address;
+}
 void MessageHelper::setSensorType(Sensor_type type) {
   internalMessage_.sensorType = type;
 }
@@ -46,13 +49,16 @@ void MessageHelper::setPayloadSize(unsigned char size) {
   internalMessage_.payloadsize = size;
 }
 
-unsigned char MessageHelper::getSensorID(){
+unsigned char MessageHelper::getSensorID() {
   return internalMessage_.sensor_id;
 }
-Sensor_type MessageHelper::getSensorType(){
+uint16_t MessageHelper::getSensorAddress() {
+  return internalMessage_.sensor_address;
+}
+Sensor_type MessageHelper::getSensorType() {
   return internalMessage_.sensorType;
 }
-Sensor_information_type MessageHelper::getSensorInformationType(){
+Sensor_information_type MessageHelper::getSensorInformationType() {
   return internalMessage_.informationType;
 }
 Sensor_command MessageHelper::getCommand() {
