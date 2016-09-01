@@ -24,7 +24,7 @@
 //Constructor
 MessageHelper::MessageHelper() { };
 
-void MessageHelper::setSensorID(unsigned char id) {
+void MessageHelper::setSensorID(uint8_t id) {
   internalMessage_.sensor_id = id;
 }
 void MessageHelper::setSensorAddress(uint16_t address) {
@@ -45,33 +45,27 @@ void MessageHelper::setSystemMessageType(System_message_type type) {
 void MessageHelper::setPayloadType(Payload_type type) {
   internalMessage_.datatype = type;
 }
-void MessageHelper::setPayloadSize(unsigned char size) {
-  internalMessage_.payloadsize = size;
-}
 
-unsigned char MessageHelper::getSensorID() {
+unsigned char MessageHelper::getSensorID() const {
   return internalMessage_.sensor_id;
 }
-uint16_t MessageHelper::getSensorAddress() {
+uint16_t MessageHelper::getSensorAddress() const {
   return internalMessage_.sensor_address;
 }
-Sensor_type MessageHelper::getSensorType() {
+Sensor_type MessageHelper::getSensorType() const {
   return internalMessage_.sensorType;
 }
-Sensor_information_type MessageHelper::getSensorInformationType() {
+Sensor_information_type MessageHelper::getSensorInformationType() const {
   return internalMessage_.informationType;
 }
-Sensor_command MessageHelper::getCommand() {
+Sensor_command MessageHelper::getCommand() const {
   return internalMessage_.sensorCommand;
 }
-System_message_type MessageHelper::getSystemMessageType() {
+System_message_type MessageHelper::getSystemMessageType() const {
   return internalMessage_.messageType;
 }
-Payload_type MessageHelper::getPayloadType() {
+Payload_type MessageHelper::getPayloadType() const {
   return internalMessage_.datatype;
-}
-unsigned char MessageHelper::getPayloadSize() {
-  return internalMessage_.payloadsize;
 }
 
 char* MessageHelper::getPayload() {
@@ -95,8 +89,7 @@ char* MessageHelper::toString() {
             internalMessage_.sensorCommand,
             internalMessage_.sensorType,
             internalMessage_.messageType,
-            internalMessage_.datatype,
-            internalMessage_.payloadsize);
+            internalMessage_.datatype);
   return buf;
 
 }
